@@ -207,7 +207,6 @@ function render(){getFiltered();const pages=Math.max(1,Math.ceil(filtered.length
 $('cards').addEventListener('click',e=>{const btn=e.target.closest('[data-flip]');if(!btn)return;const card=btn.closest('.pb-card');const flipped=card.classList.toggle('is-flipped');card.querySelector('.card-front').setAttribute('aria-hidden',flipped?'true':'false');card.querySelector('.card-back').setAttribute('aria-hidden',flipped?'false':'true')});
 ['search','filter-kind','filter-gender','filter-hair','filter-eyes','sort'].forEach(id=>$(id).addEventListener(id==='search'?'input':'change',()=>{currentPage=1;render()}));
 $('reset-filters').addEventListener('click',()=>{['search','filter-kind','filter-gender','filter-hair','filter-eyes'].forEach(id=>$(id).value='');$('sort').value='asc';currentPage=1;render()});
-$('toggle-filters').addEventListener('click',()=>{const hidden=$('filters').hidden;$('filters').hidden=!hidden;$('toggle-filters').textContent=hidden?'Filtros −':'Filtros +';$('toggle-filters').setAttribute('aria-expanded',String(hidden))});
 render();
 </script>
 </body>
